@@ -1,5 +1,4 @@
 #!/bin/python3
 str1 = "Holberton"
 str2 = "School"
-_ = str1 + " " + str2 + "!"
-print(_)
+print("Welcome to", str1, str2 + "!")

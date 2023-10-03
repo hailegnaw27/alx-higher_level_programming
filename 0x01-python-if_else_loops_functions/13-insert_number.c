@@ -1,40 +1,27 @@
-#include <stdio.h>
 #include <stdlib.h>
 #include "lists.h"
 
 /**
- * struct Node - linked list node
- * @n: integer
- * @next: points to the next node
- */
-typedef struct Node
-{
-    int n;
-    struct Node *next;
-} Node;
-
-/**
  * insert_node - inserts a number into a sorted singly linked list
- * @head: double pointer to the head of the linked list
- * @number: number to insert
- *
- * Return: pointer to the new node or NULL on failure
+ * @head: pointer to pointer of head of the list
+ * @number: number to be inserted
+ * Return: the address of the new node, or NULL if it failed
  */
-Node *insert_node(Node **head, int number)
+listint_t *insert_node(listint_t **head, int number)
 {
-    Node *new_node, *current;
+    listint_t *new_node, *current;
 
-    if (!head)
+    if (head == NULL)
         return (NULL);
 
-    new_node = malloc(sizeof(Node));
-    if (!new_node)
+    new_node = malloc(sizeof(listint_t));
+    if (new_node == NULL)
         return (NULL);
 
     new_node->n = number;
     new_node->next = NULL;
 
-    if (!*head || number < (*head)->n)
+    if (*head == NULL || number < (*head)->n)
     {
         new_node->next = *head;
         *head = new_node;
@@ -42,7 +29,7 @@ Node *insert_node(Node **head, int number)
     }
 
     current = *head;
-    while (current->next && number > current->next->n)
+    while (current->next != NULL && current->next->n < number)
         current = current->next;
 
     new_node->next = current->next;

@@ -1,11 +1,12 @@
 #!/usr/bin/python3
-import sys
+from sys import argv
 
-args = sys.argv[1:]
-result = 0
+if __name__ == "__main__":
+    args = argv[1:]  # Exclude the script name from the arguments
+    result = 0
 
-for arg in args:
-    result += int(arg)
+    for arg in args:
+        result += int(arg)
 
-print(result)
+    print(result)
 

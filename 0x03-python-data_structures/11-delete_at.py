@@ -5,7 +5,6 @@ def delete_at(my_list=[], idx=0):
         return my_list
     del my_list[idx]
     return my_list
-
 if __name__ == "__main__":
     my_list = [1, 2, 3, 4, 5]
     idx = 3

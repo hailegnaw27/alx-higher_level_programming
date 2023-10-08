@@ -1,18 +1,10 @@
 #!/usr/bin/python3
 
 def add_tuple(tuple_a=(), tuple_b=()):
-    # Pad the tuples with zeros if they are smaller than 2 elements
-    tuple_a = tuple_a + (0, 0)[:2-len(tuple_a)]
-    tuple_b = tuple_b + (0, 0)[:2-len(tuple_b)]
-
-    # Add the first elements of each tuple
-    sum_1 = tuple_a[0] + tuple_b[0]
-
-    # Add the second elements of each tuple
-    sum_2 = tuple_a[1] + tuple_b[1]
-
-    # Return a new tuple with the sums
-    return (sum_1, sum_2)
+    a = tuple_a + (0, 0)
+    b = tuple_b + (0, 0)
+    result = (a[0] + b[0], a[1] + b[1])
+    return result
 
 tuple_a = (1, 89)
 tuple_b = (88, 11)

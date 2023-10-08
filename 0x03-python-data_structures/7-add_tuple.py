@@ -2,8 +2,8 @@
 
 def add_tuple(tuple_a=(), tuple_b=()):
     # Pad the tuples with zeros if they are smaller than 2 elements
-    tuple_a += (0, 0)
-    tuple_b += (0, 0)
+    tuple_a = tuple_a + (0, 0)[:2-len(tuple_a)]
+    tuple_b = tuple_b + (0, 0)[:2-len(tuple_b)]
 
     # Add the first elements of each tuple
     sum_1 = tuple_a[0] + tuple_b[0]

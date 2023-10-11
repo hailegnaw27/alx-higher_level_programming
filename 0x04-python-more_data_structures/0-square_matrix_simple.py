@@ -9,6 +9,7 @@ def square_matrix_simple(matrix):
         new_matrix.append(new_row)
     return new_matrix
 
+
 if __name__ == "__main__":
     matrix = [
         [1, 2, 3],

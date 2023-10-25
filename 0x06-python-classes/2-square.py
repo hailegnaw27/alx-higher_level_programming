@@ -23,6 +23,7 @@ class Square:
         else:
             self.__size = size
 
+
 if __name__ == "__main__":
     my_square_1 = Square(3)
     print(type(my_square_1))

@@ -1,2 +1,2 @@
-id(variable_name)
+type
 

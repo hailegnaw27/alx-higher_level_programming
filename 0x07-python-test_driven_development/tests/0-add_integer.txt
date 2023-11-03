@@ -1,28 +1,85 @@
-#!/usr/bin/env python3
-"""
-Test Suite for add_integer.
-"""
+The `add_integer` module
+========================
 
-from add_integer import add_integer
+The `add_integer` module provides a function for adding two integers.
 
+Usage
+-----
 
-print(add_integer(1, 1))
-print(add_integer(2, 3))
-print(add_integer(-1, -34))
-print(add_integer(600, -929))
-print(add_integer(-1, 0))
+To use the `add_integer` function, first import it from the `add_integer` module:
 
-try:
-    print(add_integer(4, "School"))
-except Exception as e:
-    print(e)
+```python
+>>> add_integer = __import__('0-add_integer').add_integer
+```
 
-try:
-    print(add_integer(4, None))
-except Exception as e:
-    print(e)
+Then call the `add_integer` function with two integer arguments:
 
-try:
-    print(add_integer())
-except Exception as e:
-    print(e)
+```python
+>>> add_integer(1, 2)
+3
+```
+
+If you don't provide a second argument, it will default to 98:
+
+```python
+>>> add_integer(3)
+101
+```
+
+Examples
+--------
+
+```python
+>>> add_integer(1, 2)
+3
+
+>>> add_integer(2, 3)
+5
+
+>>> add_integer(-1, -34)
+-35
+
+>>> add_integer(600, -929)
+-329
+
+>>> add_integer(-1, 0)
+-1
+
+>>> add_integer(4.5, 5.5)
+10
+
+>>> add_integer(4.23, 3.14)
+7
+
+>>> add_integer("hello", 3)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "add_integer.py", line 12, in add_integer
+    raise TypeError("a must be an integer")
+TypeError: a must be an integer
+
+>>> add_integer(5, "world")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "add_integer.py", line 14, in add_integer
+    raise TypeError("b must be an integer")
+TypeError: b must be an integer
+
+>>> add_integer([], 5)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "add_integer.py", line 16, in add_integer
+    raise TypeError("a must be an integer")
+TypeError: a must be an integer
+
+>>> add_integer(5, {})
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "add_integer.py", line 18, in add_integer
+    raise TypeError("b must be an integer")
+TypeError: b must be an integer
+
+>>> add_integer()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: add_integer() missing 1 required positional argument: 'b'

@@ -1,0 +1,33 @@
+This test file is for the "say_my_name" function of the "say_my_name" module.
+
+Example usage:
+>>> from say_my_name import say_my_name
+>>> say_my_name("John", "Doe")
+My name is John Doe.
+
+>>> say_my_name("Jane", "Smith")
+My name is Jane Smith.
+
+>>> say_my_name("", "Doe")
+My name is  Doe.
+
+>>> say_my_name("John", "")
+My name is John .
+
+>>> say_my_name("123", "456")
+My name is 123 456.
+
+>>> say_my_name("John", 789)
+Traceback (most recent call last):
+    ...
+TypeError: last_name must be a string.
+
+>>> say_my_name(True, "Doe")
+Traceback (most recent call last):
+    ...
+TypeError: first_name must be a string.
+
+>>> say_my_name()
+Traceback (most recent call last):
+    ...
+TypeError: say_my_name() missing 2 required positional arguments: 'first_name' and 'last_name'.

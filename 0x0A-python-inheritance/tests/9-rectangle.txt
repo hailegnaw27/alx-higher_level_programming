@@ -1,0 +1,22 @@
+Full Rectangle
+
+Write a class `Rectangle` that inherits from BaseGeometry.
+
+Requirements:
+
+* Implement a new class called `Rectangle`
+* `Rectangle` should have a constructor that takes two arguments: `width` and `height`
+* `width` and `height` should be private and can be accessed through `Rectangle`'s public `area` method - no getter or setter
+* `width` and `height` must be positive integers, validated by the `integer_validator` method inherited from BaseGeometry
+* Implement the `__str__` method so that it returns the following string: `[Rectangle] <width>/<height>`
+* Implement the `area` method to return the area of the rectangle (width * height)
+
+Example:
+
+>>> r = Rectangle(3, 5)
+>>> print(r)
+[Rectangle] 3/5
+>>> print(r.area())
+15
+
+You are not allowed to import any module

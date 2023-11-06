@@ -1,0 +1,31 @@
+Exact same object
+
+Write a function that returns True if the object is exactly an instance of the specified class; otherwise False.
+
+Prototype: `def is_same_class(obj, a_class):`
+You are not allowed to import any module.
+
+Example:
+
+Checking with an int object:
+>>> a = 1
+>>> is_same_class(a, int)
+True
+
+Checking with a float object:
+>>> b = 3.14
+>>> is_same_class(b, float)
+True
+
+Checking with a list object:
+>>> c = [1, 2, 3]
+>>> is_same_class(c, list)
+True
+
+Checking with a string object:
+>>> d = "Hello, world!"
+>>> is_same_class(d, str)
+True
+
+Requirements:
+* Your code should not be executed when imported.

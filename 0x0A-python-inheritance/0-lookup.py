@@ -1,11 +1,12 @@
 #!/usr/bin/python3
-okup(obj):
+"""
+This module contains a function that returns the list of available
+attributes and methods of an object
+"""
+
+
+def lookup(obj):
     """
-    Returns the list of available attributes and methods of an object.
+    Returns a list object of available attributes and methods of `obj`
     """
     return dir(obj)
-
-
-if __name__ == "__main__":
-    import doctest
-    doctest.testfile("./tests/0-lookup.txt")

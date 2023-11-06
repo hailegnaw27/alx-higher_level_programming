@@ -1,0 +1,22 @@
+Square #1
+
+Write a class `Square` that inherits from `Rectangle`.
+
+Requirements:
+
+* Implement a new class called `Square`
+* `Square` should have a constructor that takes one argument: `size`
+* `size` should be private and can be accessed through `Square`'s public `area` method - no getter or setter
+* `size` must be a positive integer, validated by `integer_validator`
+* Implement the `area` method to compute the area of the square (size * size)
+* Since `Square` is a subclass of `Rectangle`, `Square` should also have its own version of `__str__` method to print its dimensions in the format `[Square] <size>/<size>`
+
+Example:
+
+>>> s = Square(13)
+>>> print(s)
+[Square] 13/13
+>>> print(s.area())
+169
+
+You are not allowed to import any module.

@@ -1,0 +1,28 @@
+Same class or inherit from
+
+Write a function that returns True if the object is an instance of, or if the object is an instance of a class that inherited from, the specified class; otherwise False.
+
+Prototype: `def is_kind_of_class(obj, a_class):`
+You are not allowed to import any module.
+
+Example:
+>>> a = 1
+>>> if is_kind_of_class(a, int):
+...     print("{} comes from {}".format(a, int.__name__))
+...
+1 comes from int
+
+>>> b = 3.14
+>>> if is_kind_of_class(b, float):
+...     print("{} comes from {}".format(b, float.__name__))
+...
+3.14 comes from float
+
+>>> c = [1, 2, 3]
+>>> if is_kind_of_class(c, list):
+...     print("{} comes from {}".format(c, list.__name__))
+...
+[1, 2, 3] comes from list
+
+Requirements:
+* Your code should not be executed when imported.

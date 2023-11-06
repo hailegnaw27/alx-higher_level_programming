@@ -1,0 +1,33 @@
+Rectangle
+
+Write a class Rectangle that inherits from BaseGeometry (7-base_geometry.py).
+
+Requirements:
+
+* Implement a new class called `Rectangle`
+* `Rectangle` should have a constructor that takes two arguments: `width` and `height`
+* `width` and `height` should be private and can be accessed through `Rectangle`'s public `area` method - no getter or setter
+* `width` and `height` must be positive integers, validated by the `integer_validator` method inherited from `BaseGeometry`
+* Implement `__str__` method so that it returns the following string:[Rectangle] <width>/<height>
+
+Example:
+
+>>> r = Rectangle(3, 5)
+>>> print(r)
+[Rectangle] 3/5
+>>> print(dir(r))
+[...'_Rectangle__height', '_Rectangle__width'...]
+
+>>> try:
+...     print("Rectangle: {} - {}".format(r.width, r.height))
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[AttributeError] 'Rectangle' object has no attribute 'width'
+
+>>> try:
+...     r2 = Rectangle(4, True)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] height must be an integer
+
+You are not allowed to import any module.

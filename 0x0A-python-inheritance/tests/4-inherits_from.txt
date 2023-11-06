@@ -1,0 +1,31 @@
+Only sub class of
+
+Write a function that returns True if the object is an instance of a class that inherited (directly or indirectly) from the specified class; otherwise False.
+
+Prototype: `def inherits_from(obj, a_class):`
+You are not allowed to import any module.
+
+Example:
+>>> a = True
+>>> if inherits_from(a, int):
+...     print("{} inherited from class {}".format(a, int.__name__))
+...
+>>> if inherits_from(a, bool):
+...     print("{} inherited from class {}".format(a, bool.__name__))
+...
+True inherited from class bool
+
+>>> c = 24
+>>> if inherits_from(c, int):
+...     print("{} inherited from class {}".format(c, int.__name__))
+...
+24 inherited from class int
+
+>>> d = []
+>>> if inherits_from(d, list):
+...     print("{} inherited from class {}".format(d, list.__name__))
+...
+[] inherited from class list
+
+Requirements:
+* Your code should not be executed when imported.

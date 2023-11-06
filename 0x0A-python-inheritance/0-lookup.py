@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 ass MyList(list):
     """
     Inherits from the list class and provides additional functionality.

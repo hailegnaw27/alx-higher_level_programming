@@ -1,4 +1,4 @@
 python3 -c 'print(__import__("my_list").__doc__)'
-n3 -c 'from my_module import MyList; my_list = MyList(); my_list.extend([1, 4, 2, 3, 5]); print(my_list); my_list.print_sorted(); print(my_list)'
 python3 -c 'print(__import__("my_list").MyList.__doc__)'
 python3 -c 'print(__import__("my_list").MyList.print_sorted.__doc__)'
+

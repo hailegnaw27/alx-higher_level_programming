@@ -13,7 +13,6 @@ def load_from_json_file(filename):
     with open(filename, mode='r', encoding='utf-8') as file:
         return json.load(file)
 
-
 if __name__ == '__main__':
     filename = 'add_item.json'
     args = sys.argv[1:]

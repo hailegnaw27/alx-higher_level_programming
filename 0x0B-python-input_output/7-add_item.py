@@ -1,21 +1,36 @@
 #!/usr/bin/python3
-import sys
-import json
-from os import path
+"""
+Module for BaseGeometry class.
+"""
 
-def save_to_json_file(my_obj, filename):
-    with open(filename, mode='w', encoding='utf-8') as file:
-        json.dump(my_obj, file)
 
-def load_from_json_file(filename):
-    if not path.exists(filename):
-        return []
-    with open(filename, mode='r', encoding='utf-8') as file:
-        return json.load(file)
+class BaseGeometry:
+    """
+    Class BaseGeometry.
+    """
 
-if __name__ == '__main__':
-    filename = 'add_item.json'
-    args = sys.argv[1:]
-    my_list = load_from_json_file(filename)
-    my_list.extend(args)
-    save_to_json_file(my_list, filename)
+    def area(self):
+        """
+        Public instance method: area()
+
+        Raises:
+        Exception: when area is not implemented
+        """
+        raise Exception('area() is not implemented')
+
+    def integer_validator(self, name, value):
+        """
+        Public instance method: integer_validator(name, value)
+
+        Args:
+        - name (str): name of variable
+        - value (int): integer to validate
+
+        Raises:
+        TypeError: if value is not an integer
+        ValueError: if value is less than or equal to 0
+        """
+        if type(value) is not int:
+            raise TypeError('{} must be an integer'.format(name))
+        if value <= 0:
+            raise ValueError('{} must be greater than 0'.format(name))

@@ -1,36 +1,20 @@
 #!/usr/bin/python3
-"""
-Module for BaseGeometry class.
-"""
+"""Adds all arguments to a Python list, and then save them to a file"""
 
+import json
+import os.path
+import sys
 
-class BaseGeometry:
-    """
-    Class BaseGeometry.
-    """
+filename = 'add_item.json'
 
-    def area(self):
-        """
-        Public instance method: area()
+if os.path.exists(filename):
+    with open(filename, 'r') as f:
+        json_list = json.load(f)
+else:
+    json_list = []
 
-        Raises:
-        Exception: when area is not implemented
-        """
-        raise Exception('area() is not implemented')
+for arg in sys.argv[1:]:
+    json_list.append(arg)
 
-    def integer_validator(self, name, value):
-        """
-        Public instance method: integer_validator(name, value)
-
-        Args:
-        - name (str): name of variable
-        - value (int): integer to validate
-
-        Raises:
-        TypeError: if value is not an integer
-        ValueError: if value is less than or equal to 0
-        """
-        if type(value) is not int:
-            raise TypeError('{} must be an integer'.format(name))
-        if value <= 0:
-            raise ValueError('{} must be greater than 0'.format(name))
+with open(filename, mode='w') as f:
+    json.dump(json_list, f)

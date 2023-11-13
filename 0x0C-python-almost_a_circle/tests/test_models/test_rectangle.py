@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import unittest
 from rectangle import Rectangle
 

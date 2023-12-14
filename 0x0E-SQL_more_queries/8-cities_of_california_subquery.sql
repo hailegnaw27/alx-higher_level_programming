@@ -1,8 +1,6 @@
--- List all the cities of California in the hbtn_0d_usa database
-SELECT * FROM cities
-WHERE state_id = (
-  SELECT id FROM states
-  WHERE name = 'California'
-)
-ORDER BY id ASC;
+-- Script to list all cities of California in ascending order
+SELECT cities.id, cities.name
+FROM cities
+WHERE cities.state_id = (SELECT states.id FROM states WHERE states.name = 'California')
+ORDER BY cities.id ASC;
 

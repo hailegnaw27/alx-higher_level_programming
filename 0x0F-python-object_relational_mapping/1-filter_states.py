@@ -1,14 +1,23 @@
 #!/usr/bin/python3
-import MySQLdb
-import sys
+"""
+filter states by n
+"""
 
-if __name__ == '__main__':
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
-    db = MySQLdb.connect(host='localhost', port=3306, user=username, passwd=password, db=database)
-    cursor = db.cursor()
-    cursor.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
-    rows = cursor.fetchall()
+import sys
+import MySQLdb
+
+if __name__ == "__main__":
+    usr = sys.argv[1]
+    pas = sys.argv[2]
+    nme = sys.argv[3]
+
+    # defalt port - 3306
+    db = MySQLdb.connect(user=usr, passwd=pas, db=nme)
+    cur = db.cursor()
+
+    cur.execute("SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id")
+    rows = cur.fetchall()
+
     for row in rows:
         print(row)
+

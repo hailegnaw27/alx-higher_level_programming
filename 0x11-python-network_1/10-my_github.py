@@ -1,16 +1,10 @@
 #!/usr/bin/python3
+"""sends giub cedentials and displays the github id"""
+
 import requests
-import sys
+from sys import argv
 
-username = sys.argv[1]
-password = sys.argv[2]
-
-url = "https://api.github.com/user"
-response = requests.get(url, auth=(username, password))
-
-if response.status_code == 200:
-    user_data = response.json()
-    user_id = user_data.get('id')
-    print(user_id)
-else:
-    print("None")
+if __name__ == "__main__":
+    auth = (argv[1], argv[2])
+    request = requests.get("https://api.github.com/user", auth=auth)
+    print(request.json().get("id"))

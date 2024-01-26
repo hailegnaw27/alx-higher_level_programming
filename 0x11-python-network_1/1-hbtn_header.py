@@ -1,11 +1,9 @@
 #!/usr/bin/python3
-import urllib.request
-import sys
-
-url = sys.argv[1]
+from urllib import request
+from sys import argv
 
 if __name__ == "__main__":
-with urllib.request.urlopen(url) as response:
+    with request.urlopen(argv[1]) as page:
     header = response.getheader('X-Request-Id')
 
 print(header)

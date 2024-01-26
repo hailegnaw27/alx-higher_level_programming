@@ -1,7 +1,6 @@
 #!/usr/bin/python3
-"""
-Module for retrieving the 10 most recent commits of a GitHub repository
-"""
+"""script to show my recent commits"""
+
 import requests
 from sys import argv
 

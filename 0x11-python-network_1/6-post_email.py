@@ -1,12 +1,9 @@
 #!/usr/bin/python3
+"""
+Module for sending a POST request with an email parameter to a URL and displaying the response body
+"""
 import requests
-import sys
+from sys import argv
 
-url = sys.argv[1]
-email = sys.argv[2]
-
-payload = {'email': email}
-response = requests.post(url, data=payload)
-
-print("Your email is: {}".format(email))
-print(response.text)
+if __name__ == "__main__":
+    print(requests.post(argv[1], data={'email': argv[2]}).text)

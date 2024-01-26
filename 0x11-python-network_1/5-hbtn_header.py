@@ -1,10 +1,9 @@
 #!/usr/bin/python3
+"""
+Module for sending a request to a URL and displaying a specific response header value
+"""
 import requests
-import sys
+from sys import argv
 
-url = sys.argv[1]
-
-response = requests.get(url)
-header_value = response.headers.get('X-Request-Id')
-
-print(header_value)
+if __name__ == "__main__":
+    print(requests.get(argv[1]).headers.get("X-Request-Id"))

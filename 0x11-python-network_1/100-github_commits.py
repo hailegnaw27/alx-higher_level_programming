@@ -1,19 +1,16 @@
+#!/usr/bin/python3
+"""
+Module for retrieving the 10 most recent commits of a GitHub repository
+"""
 import requests
-import sys
+from sys import argv
 
-def fetch_commits(repo, owner):
-    url = f'https://api.github.com/repos/{owner}/{repo}/commits'
-    response = requests.get(url)
-    response.raise_for_status()
+if __name__ == "__main__":
+    url = "https://api.github.com/repos/{}/{}/commits?per_page=10"\
+          .format(argv[2], argv[1])
 
-    commits = response.json()
-
-    for commit in commits[:10]:
-        sha = commit['sha']
-        author = commit['commit']['author']['name']
-        print(f"{sha}: {author}")
-
-if __name__ == '__main__':
-    repo = sys.argv[1]
-    owner = sys.argv[2]
-    fetch_commits(repo, owner)
+    request = requests.get(url)
+    commits = request.json()
+    for commit in commits:
+        print("{}: {}".format(commit.get("sha"),
+                              commit.get("commit").get("author").get("name")))

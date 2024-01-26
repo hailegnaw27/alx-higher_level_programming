@@ -1,10 +1,22 @@
 #!/usr/bin/python3
-"""sends giub cedentials and displays the github id"""
+"""
+Module for using the GitHub API to display your GitHub id
+"""
 
 import requests
-from sys import argv
+import sys
+
 
 if __name__ == "__main__":
-    auth = (argv[1], argv[2])
-    request = requests.get("https://api.github.com/user", auth=auth)
-    print(request.json().get("id"))
+    username = sys.argv[1]
+    password = sys.argv[2]
+    url = "https://api.github.com/user"
+
+    response = requests.get(url, auth=(username, password))
+
+    if response.status_code == 200:
+        json_obj = response.json()
+        print(json_obj.get('id'))
+    else:
+        print("None")
+

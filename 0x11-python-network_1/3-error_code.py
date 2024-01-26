@@ -1,13 +1,13 @@
 #!/usr/bin/python3
-import urllib.request
-import urllib.error
-import sys
+"""sends request and display the response body."""
 
-url = sys.argv[1]
+from urllib import request, error
+from sys import argv
 
-try:
-    with urllib.request.urlopen(url) as response:
-        body = response.read().decode('utf-8')
-        print(body)
-except urllib.error.HTTPError as e:
-    print("Error code: {}".format(e.code))
+if __name__ == "__main__":
+    try:
+        with request.urlopen(argv[1]) as page:
+            print(page.read().decode('utf-8'))
+    except error.HTTPError as e:
+        print("Error code: {}".format(e.code))
+

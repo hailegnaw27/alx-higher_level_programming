@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+# install and configure haproxy
+
+sudo apt-get -y update
+sudo apt-get -y upgrade
+sudo apt-get -y install haproxy
+
+echo "ENABLED=1" >> /etc/default/haproxy
+sudo mv /etc/haproxy/haproxy.cfg{,.original}
+sudo touch /etc/haproxy/haproxy.cfg
+
+printf %s "global
+log 127.0.0.1 local0 notice
+maxconn 2000
+user haproxy
+group haproxy
+defaults
+log     global
+mode    http
+option  httplog
+option  dontlognull
+retries 3
+option redispatch
+timeout connect  5000
+timeout client  10000
+timeout server  10000
+listen hbnb
+bind 0.0.0.0:80
+mode http
+stats enable
+stats uri /haproxy?stats
+balance roundrobin
+option httpclose
+option forwardfor
+444129-web-01 18.210.10.210 check port 80
+444129-web-02 100.25.215.65 check port 80
+" >> /etc/haproxy/haproxy.cfg
+
+sudo service haproxy start
+
